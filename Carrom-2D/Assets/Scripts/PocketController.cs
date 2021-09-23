@@ -7,7 +7,6 @@ namespace BSWCarrom
     public class PocketController : MonoBehaviour
     {
         public Transform strikerTransform;
-        public Transform redCoinTransform;
         private bool isRedCoin = false;
         private bool isCoinAfterRed = false;
         private ScoreController scoreController;
@@ -24,7 +23,6 @@ namespace BSWCarrom
             else if (collision.gameObject.CompareTag("Striker"))
             {
                 Debug.Log(this.name);
-
                 strikerTransform.position = new Vector3(0, -1.73f, 0);
             }
             else if (collision.gameObject.CompareTag("RedCoin"))
@@ -47,14 +45,6 @@ namespace BSWCarrom
                 {
                     collision.gameObject.SetActive(true);
                 }
-            }
-        }
-
-        IEnumerator CheckForCover()
-        {
-            if (isRedCoin)
-            {
-                yield return new WaitForEndOfFrame();
             }
         }
     }

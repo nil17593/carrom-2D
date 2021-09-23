@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95463b3e0534f3045a1fa4c8a696bbf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strikerSpeed: 500
+  strikerSpeed: 200
   arrow: {fileID: 2001514536}
   lineRenderer: {fileID: 461226212}
   strikerSlider: {fileID: 1669346266}
@@ -1800,7 +1800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikerTransform: {fileID: 240786355}
-  redCoinTransform: {fileID: 1519080079}
 --- !u!1 &555100253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,7 +3123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikerTransform: {fileID: 240786355}
-  redCoinTransform: {fileID: 1519080079}
 --- !u!1 &1508748700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,7 +3505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikerTransform: {fileID: 240786355}
-  redCoinTransform: {fileID: 1519080079}
 --- !u!1 &1647604537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,7 +3722,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikerTransform: {fileID: 240786355}
-  redCoinTransform: {fileID: 1519080079}
 --- !u!1 &1669346264
 GameObject:
   m_ObjectHideFlags: 0
