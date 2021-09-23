@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Striker
   - Coin
+  - RedCoin
   layers:
   - Default
   - TransparentFX

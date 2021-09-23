@@ -2,18 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PocketController : MonoBehaviour
+namespace BSWCarrom 
 {
-    public  Transform strikerTransform;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class PocketController : MonoBehaviour
     {
-        if(collision.gameObject.tag=="Coin")// || collision.gameObject.tag == "Striker")
+        public Transform strikerTransform;
+        public Transform redCoinTransform;
+        private bool isRedCoin = false;
+        private bool isCoinAfterRed = false;
+        private ScoreController scoreController;
+
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            Destroy(collision.gameObject);
+            if (collision.gameObject.CompareTag("Coin"))// || collision.gameObject.tag == "Striker")
+            {
+                Debug.Log(collision.name);
+                Destroy(collision.gameObject);
+                //scoreController.IncreaseScore(10);
+            }
+            else if (collision.gameObject.CompareTag("Striker"))
+            {
+                Debug.Log(this.name);
+
+                strikerTransform.position = new Vector3(0, -1.73f, 0);
+            }
+            else if (collision.gameObject.CompareTag("RedCoin"))
+            {
+                Debug.Log(this.name);
+
+                collision.gameObject.SetActive(false);
+                isRedCoin = true;
+
+                if (collision.gameObject.CompareTag("Coin"))
+                {
+                    isCoinAfterRed = true;
+                    collision.gameObject.SetActive(false);
+                }
+                else if (isCoinAfterRed == true)
+                {
+                    collision.gameObject.SetActive(false);
+                }
+                else
+                {
+                    collision.gameObject.SetActive(true);
+                }
+            }
         }
-        else if(collision.gameObject.tag == "Striker")
+
+        IEnumerator CheckForCover()
         {
-            strikerTransform.position = new Vector3(0, -1.73f, 0);
+            if (isRedCoin)
+            {
+                yield return new WaitForEndOfFrame();
+            }
         }
     }
 }
