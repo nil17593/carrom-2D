@@ -4,22 +4,19 @@ using UnityEngine;
 
 namespace BSWCarrom
 {
-    public class ScoreController : MonoBehaviour
+    public class ScoreController : GenericMonoSingleton<ScoreController>
     {
-        private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI scoreText;
 
         private int score = 0;
 
-        private void Awake()
-        {
-            scoreText = GetComponent<TextMeshProUGUI>();
-        }
         private void Start()
         {
             RefreshUI();
+
         }
 
-        //the score will increase by 10 points after each key collect
+        //the score will increase by respective points after each coin collect
         public void IncreaseScore(int increament)
         {
             score += increament;
@@ -27,6 +24,7 @@ namespace BSWCarrom
             Debug.Log("increase");
         }
 
+        //score text will refresh after every score update
         private void RefreshUI()
         {
             scoreText.text = "Score: " + score;

@@ -7,6 +7,8 @@ TagManager:
   - Striker
   - Coin
   - RedCoin
+  - BlackCoin
+  - WhiteCoin
   layers:
   - Default
   - TransparentFX
